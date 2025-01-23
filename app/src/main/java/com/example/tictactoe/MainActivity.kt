@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -24,6 +23,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.tictactoe.presentation.TicTacToeField
 import com.example.tictactoe.presentation.TicTacToeViewModel
+import com.example.tictactoe.presentation.component.PulseAnimation
 import com.example.tictactoe.ui.theme.TicTacToeTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -34,8 +34,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             TicTacToeTheme {
                 Surface(
-                    modifier = Modifier
-                        .fillMaxSize(),
+                    modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val viewModel = hiltViewModel<TicTacToeViewModel>()
@@ -50,7 +49,7 @@ class MainActivity : ComponentActivity() {
                         ) {
                             Text(
                                 text = "Couldn't connect to the server",
-                                color = MaterialTheme.colorScheme.error
+                                color = Color.Red
                             )
                         }
                         return@Surface
@@ -88,8 +87,7 @@ class MainActivity : ComponentActivity() {
                                 } else "O is next",
                                 fontSize = 32.sp,
                                 color = Color.Black,
-                                modifier = Modifier
-                                    .align(Alignment.TopCenter)
+                                modifier = Modifier.align(Alignment.TopCenter)
                             )
                         }
                         TicTacToeField(
@@ -123,7 +121,7 @@ class MainActivity : ComponentActivity() {
                                     .background(Color.White),
                                 contentAlignment = Alignment.Center
                             ) {
-                                CircularProgressIndicator()
+                                PulseAnimation()
                             }
                         }
                     }

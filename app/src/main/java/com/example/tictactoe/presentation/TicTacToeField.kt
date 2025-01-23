@@ -15,13 +15,13 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.tictactoe.data.GameState
-import com.example.tictactoe.ui.theme.Blue80
+import com.example.tictactoe.ui.theme.GreenAccent
 
 @Composable
 fun TicTacToeField(
     state: GameState,
     modifier: Modifier = Modifier,
-    playerXColor: Color = Blue80,
+    playerXColor: Color = GreenAccent,
     playerOColor: Color = Color.Red,
     onTapInField: (x: Int, y: Int) -> Unit
 ) {
@@ -175,7 +175,7 @@ fun TicTacToeFieldPreview() {
     TicTacToeField(
         state = GameState(
             field = arrayOf(
-                arrayOf('X', null, null),
+                arrayOf('X', null, 'X'),
                 arrayOf(null, 'O', 'O'),
                 arrayOf(null, 'X', null),
             ),
